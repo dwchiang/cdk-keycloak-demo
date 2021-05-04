@@ -38,7 +38,16 @@ https://cdk-k-KeyCl-AY91KM2YW97Y-2101860371.us-east-1.elb.amazonaws.com
 - Username: `keycloak`
 - Password: Go to your AWS Management Console (open in another separated browser tab) --> Secret Manager --> Find a secret named in this format **KeyCloakKCSecret9C81E19A-ID9ylhpKNagG** --> Secret value --> Click button **Retrieve secret value** --> You will see the password.
 
----
+# Advanced: Cost-efficient Setup
+
+If you want to have a cost-efficient setup during your testing period, and you are sort of familiar with Amazon ECS, then you can follow these steps:
+
+1. Finish all the steps of **Getting Started** section.
+2. The CDK construct cdk-keycloak is using 4 CPU and 30G Memory by default. We are going to modify the ECS Task Definition to downsize to 2 CPU and 4G Memory.
+3. Go to AWS Management Console --> Amazon ECS --> Task Definition --> find a task definition named in this format **cdkkeycloakdemoKeyCloakKeyCloakContainerSerivceTaskDefD7137FEC** --> Create new revision --> Modify the task size CPU and Memory.
+4. Go to AWS Management Console --> Amazon ECS --> Clusters --> find a ECS cluster named in this format **cdk-keycloak-demo-KeyCloakKeyCloakContainerSerivceClusterD83FE84F-wM51y5hWsiq8** --> Click the only one service --> **Update** it --> Select the **Task Definition Revision** to fit the revision number of previous step; also you can set **Number of tasks** to 1. --> Click all the **Next step** buttons.
+
+# Work with CloudFront Extension OAuth2
 
 More detailed setup screenshots and work with CloudFront Extension OAuth2, please visit Ernest's blog post:
 
