@@ -1,5 +1,6 @@
 # cdk-keycloak-demo
 
+A demo app using `cdk-keycloak` CDK construct.
 # Getting Started
 
 1. Config the AWS CLI Profile.
@@ -25,4 +26,22 @@ cdk-keycloak-demo.KeyCloakKeyCloakContainerSerivceEndpointURL9C81E19A = cdk-k-Ke
 ```
 
 7. (Optional) Point the ELB endpoint (cdk-keycloak-demo.KeyCloakKeyCloakContainerSerivceEndpoint) as CNAME to your DNS.
+
+8. Visit ELB endpoint with `https://` in your browser. For example:
+
+```
+https://cdk-k-KeyCl-AY91KM2YW97Y-2101860371.us-east-1.elb.amazonaws.com
+```
+
+9. In the browser, click on `Administration Console`.
+
+- Username: `keycloak`
+- Password: Go to your AWS Management Console (open in another separated browser tab) --> Secret Manager --> Find a secret named in this format **KeyCloakKCSecret9C81E19A-ID9ylhpKNagG** --> Secret value --> Click button **Retrieve secret value** --> You will see the password.
+
+---
+
+More detailed setup screenshots and work with CloudFront Extension OAuth2, please visit Ernest's blog post:
+
+- (en) [Using AWS CDK to Deploy Static Website ft. OAuth 2.0 Authorization Code](https://www.ernestchiang.com/en/posts/2021/implementing-cloudfront-lambda-at-edge-oauth2-by-cdk/)
+- (zh) [使用 AWS CDK 快速部署靜態網站，搭配 CloudFront Lambda@Edge 擴充 OAuth 2.0 Authorization Code 授權流程](https://www.ernestchiang.com/zh/posts/2021/implementing-cloudfront-lambda-at-edge-oauth2-by-cdk/)
 
